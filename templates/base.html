@@ -1,0 +1,25 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <title>Title</title>
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

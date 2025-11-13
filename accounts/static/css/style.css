@@ -1,0 +1,331 @@
+/* ---------------------------------- */
+/* 1. General Body and Layout         */
+/* ---------------------------------- */
+body {
+    font-family: 'Roboto', sans-serif; /* Cleaner font */
+    background-color: #f0f4f8; /* Very light gray/blue background */
+    margin: 0;
+    padding-top: 50px; /* Space for the fixed navbar */
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: #1a5e8f; /* Deep blue heading color */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* ---------------------------------- */
+/* 2. Navbar Styling (navbar.html)    */
+/* ---------------------------------- */
+
+.navbar {
+    background-color: #ffffff; /* White navbar background */
+    border-bottom: 3px solid #1a5e8f; /* Strong bottom border */
+    padding: 0 50px;
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    /* Crucial for split layout: Use flexbox to push items apart */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* This container will hold your main navigation links (Home, MyStudents, etc.) */
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: #1a5e8f !important; /* Dark blue brand text */
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-right: 30px;
+    transition: color 0.3s;
+}
+
+.nav.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav.navbar-nav li {
+    margin-left: 2px;
+}
+
+.nav.navbar-nav a {
+    color: #333 !important; /* Dark text for links */
+    text-decoration: none;
+    padding: 24px 15px; /* Adjust padding for 70px height */
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.nav.navbar-nav a:hover,
+.nav.navbar-nav li.active a {
+    background-color: #e5f1ff; /* Very light blue background on hover */
+    color: #1a5e8f !important;
+    border-bottom: 4px solid #3498db; /* Subtle blue underline on active/hover */
+    padding-bottom: 20px; /* Adjust padding to keep height consistent */
+}
+
+/* ---------------------------------- */
+/* Logout Button Styling (Corner Placement) */
+/* ---------------------------------- */
+/* This ensures the button group is on the right, independent of the links */
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Specific button style for a clean, professional look */
+.navbar-right button[type="submit"] {
+    background: #ff5e5e; /* Soft red for logout */
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+
+    /* Adds a lift effect */
+    box-shadow: 0 3px 6px rgba(255, 94, 94, 0.4);
+
+    transition: all 0.3s ease;
+}
+
+.navbar-right button[type="submit"]:hover {
+    background-color: #e54c4c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(255, 94, 94, 0.6);
+}
+
+/* ---------------------------------- */
+/* 3. Data Table Styling              */
+/* ---------------------------------- */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e0e6eb; /* Lighter border */
+}
+
+.table .thead-dark th {
+    background-color: #3498db; /* Clear blue header */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95em;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9fbfd; /* Very light subtle stripe */
+}
+
+.table tr:hover {
+    background-color: #e5f1ff; /* Hover highlights the row */
+}
+
+.table td a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+.table td a[href*="delete"] {
+    color: #ff5e5e;
+}
+
+/* ---------------------------------- */
+/* 4. Form Card Styling (add/update)  */
+/* ---------------------------------- */
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.card-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px; /* Softer rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 480px;
+    width: 100%;
+}
+
+.card-form h2 {
+    text-align: center;
+    color: #1a5e8f;
+    border-bottom: 2px solid #e0e6eb;
+    margin-bottom: 30px;
+}
+
+.card-form label {
+    display: block;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.card-form input[type="text"],
+.card-form input[type="email"],
+.card-form input[type="number"],
+.card-form input[type="password"],
+.card-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.card-form input:focus, .card-form select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+.card-form button[type="submit"] {
+    background-color: #2ecc71; /* Green submit button */
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.card-form button[type="submit"]:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+}
+/* ---------------------------------- */
+/* 5. Dashboard Styling               */
+/* ---------------------------------- */
+.dashboard-title {
+    text-align: center;
+    margin-top: 0;
+    font-size: 2.2em;
+    color: #1a5e8f; /* Deep blue heading color */
+}
+
+.dashboard-subtitle {
+    text-align: center;
+    color: #667;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+.stat-cards-container {
+    display: flex;
+    justify-content: center; /* Center the entire card group */
+    flex-wrap: wrap;
+    gap: 30px; /* Space between cards */
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    font-size: 3em;
+    margin-right: 20px;
+    opacity: 0.7;
+}
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 1em;
+    color: #555;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1a5e8f;
+    line-height: 1.2;
+}
+
+.stat-link {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #1a5e8f;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.stat-link:hover {
+    background-color: #e5f1ff;
+    color: #3498db;
+}
+
+/* Color Coding for Cards */
+.student-card .stat-value, .student-card .stat-icon { color: #2ecc71; } /* Green */
+.employee-card .stat-value, .employee-card .stat-icon { color: #e67e22; } /* Orange */
+.new-student-card .stat-value, .new-student-card .stat-icon { color: #3498db; } /* Blue */
+.new-employee-card .stat-value, .new-employee-card .stat-icon { color: #9b59b6; } /* Purple */

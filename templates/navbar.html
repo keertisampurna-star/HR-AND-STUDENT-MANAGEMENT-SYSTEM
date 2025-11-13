@@ -1,0 +1,32 @@
+{% load static %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'dashboard' %}">Welcome {{ request.user.username|upper }}</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
+
+            <li><a href="{% url 'mystudents' %}">My Students</a></li>
+            <li><a href="{% url 'addstudent' %}">New Student</a></li>
+
+            {% if request.user.is_superuser %}
+             <li><a href="{% url 'myemployees' %}">My Employees</a></li>
+            <li><a href="{% url 'addemployee' %}">New Employee</a></li>
+            {% endif %}
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form method="post" action="{% url 'logout' %}" style="margin: 0; padding: 0;">
+                    {% csrf_token %}
+
+                    <button type="submit" class="btn btn-info navbar-btn">
+                        Logout
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-content">
+    <h2 class="dashboard-title">Welcome Back, {{ request.user.username|upper }}!</h2>
+    <p class="dashboard-subtitle">System Overview and Quick Stats</p>
+
+    <div class="stat-cards-container">
+
+        <div class="stat-card student-card">
+            <i class="stat-icon">&#x1F468;&#x200D;&#x1F393;</i>
+            <div class="stat-info">
+                <span class="stat-label">
+                    {% if request.user.is_superuser %}Total Students{% else %}My Students{% endif %}
+                </span>
+                <span class="stat-value">{{ total_students }}</span>
+            </div>
+            <a href="{% url 'mystudents' %}" class="stat-link">View Details</a>
+        </div>
+
+        {% if request.user.is_superuser %}
+        <div class="stat-card employee-card">
+            <i class="stat-icon">&#x1F4BC;</i>
+            <div class="stat-info">
+                <span class="stat-label">Total HR Employees</span>
+                <span class="stat-value">{{ total_employees }}</span>
+            </div>
+            <a href="{% url 'myemployees' %}" class="stat-link">View Employees</a>
+        </div>
+
+        <div class="stat-card new-employee-card">
+            <i class="stat-icon">&#x1F464;</i>
+            <div class="stat-info">
+                <span class="stat-label">Add New Employee</span>
+                <span class="stat-value">Recruit Now</span>
+            </div>
+            <a href="{% url 'addemployee' %}" class="stat-link">New Entry</a>
+        </div>
+        {% endif %}
+
+        <div class="stat-card new-student-card">
+            <i class="stat-icon">&#x2795;</i>
+            <div class="stat-info">
+                <span class="stat-label">Add New Student</span>
+                <span class="stat-value">Enroll Now</span>
+            </div>
+            <a href="{% url 'addstudent' %}" class="stat-link">New Entry</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

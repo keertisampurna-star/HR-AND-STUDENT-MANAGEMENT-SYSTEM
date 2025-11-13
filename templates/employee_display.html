@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Role</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for employee in employee_data %}
+    <tr>
+      <th scope="row">{{ employee.id }}</th>
+      <td>{{ employee.username }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{% if employee.is_superuser %}Admin{% else %}Hr{% endif %}</td>
+      <td><a href="{% url 'updateemployee' employee.id %}">Update</a></td>
+      <td><a href="{% url 'deleteemployee' employee.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

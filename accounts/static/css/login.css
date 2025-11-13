@@ -1,0 +1,99 @@
+/* ---------------------------------- */
+/* 1. Page Background and Layout      */
+/* ---------------------------------- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    margin: 0;
+    /* Use flexbox to center ALL content (title, form, and signup link) */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center; /* Center items horizontally */
+    min-height: 100vh;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    box-sizing: border-box;
+    /* Remove any fixed/absolute positioning that might conflict with body's centering */
+    margin: 0;
+}
+
+/* ---------------------------------- */
+/* 2. Title and Error Styling         */
+/* ---------------------------------- */
+h5 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-top: 0;
+    /* Use margin-bottom to create space between title and form */
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #9face6;
+    display: inline-block;
+    padding-bottom: 5px;
+    /* Remove absolute positioning to center with the rest of the body content */
+    position: static;
+    transform: none;
+}
+
+/* Styling for the invalid username/password message */
+p[style*="color:red"] {
+    background-color: #ffe0e6;
+    color: #dc3545 !important;
+    border: 1px solid #dc3545;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ---------------------------------- */
+/* 3. Form Field Styling (from as_p)  */
+/* ---------------------------------- */
+form p {
+    margin-bottom: 15px;
+    padding: 0;
+    text-align: left;
+}
+
+form p label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+form input:focus {
+    border-color: #9face6;
+    box-shadow: 0 0 8px rgba(159, 172, 230, 0.5);
+    outline: none;
+}
+
+/* ---------------------------------- */
+/* 4. Button and Signup Link Styling  */
+/* ---------------------------------- */
+button[type="submit"] {
+    background: linear-gradient(to right, #00b4d8, #0077b6);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
